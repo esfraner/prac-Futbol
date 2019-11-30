@@ -1,0 +1,75 @@
+#topbar {
+  background: rgb(179, 188, 255);
+}
+
+a {
+  cursor: pointer;
+}
+
+nav .brand-logo {
+  padding-left: 2em;
+}
+
+.main {
+  margin-top: 5%;
+}
+
+.card-image img {
+  filter: brightness(0.6);
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+
+.card-image:hover img {
+  filter: brightness(0.9);
+  opacity: 1;
+}
+
+.card .card-image {
+  text-overflow: ellipsis;
+}
+
+.card .card-image span.card-title {
+  color: #000000;
+}
+
+.card-content input {
+  background: #0000002e;
+}
+
+.curt-text {
+  height: 6em;
+  overflow: hidden;
+}
+
+#categoria {
+  text-align: right;
+  margin-bottom: 0.5em;
+}
+
+.card .card-action a#buttonSave {
+  color: red;
+}
+
+section.main aside.phoneBook {
+  padding-right: 8%;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+.letter {
+  padding: 15px;
+  margin: 5px;
+  float: left;
+  border: solid 1px;
+}
+
+.letter-used {
+  color: white;
+  background-color: #4e8ec0;
+}
+select {
+  display: inline-block;
+  height: 5%;
+}
