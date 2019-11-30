@@ -1,0 +1,115 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link src="./src/assets/style.ss"></link>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+  <div class='container'>
+  <section class='row header'>
+    <nav id="topbar">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Mi agenda</a>
+      </div>
+    </nav>
+  </section>
+  <article class='col s12'>
+    <section id=phoneBookContainer>
+    </section>
+  </article>
+  <section class='row main'>
+    <aside class='col s8 phoneBook' id="card-list">
+    
+    </aside>
+    <aside class='col s4 phoneBook'>
+    <div>
+      <h4>Formulario</h4>
+      <section id="form">
+        <div class="row">
+          <form class="col s12">
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="name" type="text" class="validate">
+                <label class="active" for="name">NAME</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="surName" type="text" class="validate">
+                <label class="active" for="surName">SURNAME</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="email" type="email" class="validate">
+                <label class="active" for="email">EMAIL</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="phone1" class="validate">
+                <label class="active" for="phone1">PHONE1</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="phone2" class="validate">
+                <label class="active" for="phone2">PHONE2</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="phone3" class="validate">
+                <label class="active" for="phone3">PHONE3</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="country" type="text" class="validate">
+                <label class="active" for="country">COUNTRY</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s7">
+                <input id="dni" type="text" class="validate">
+                <label class="active" for="dni">DNI</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="holder">
+                <img id="image" src="src/assets/images/placeholder.png" ondragover="phoneBookController.dragOver(event)" ondrop="phoneBookController.drop(event)"
+                  id="image_droped" width="115px" height="115px" />
+              </div>
+              <button type="button" class="waves-effect waves-light btn col s7" onclick="phoneBookController.pushUser()">Guardar</button>
+              <button type="button" class="waves-effect waves-light btn col s7" onclick="phoneBookController.deleteUser()">Eliminar</button>
+              <button type="button" class="waves-effect waves-light btn col s7" onclick="phoneBookController.updateUser()">Modificar</button>
+            </div>
+          </form>
+        </div>
+        </div>
+      </section>
+    </aside>
+  </section>
+  <footer class="container row">
+    <hr>
+    <section class="col s12">
+
+    </section>
+  </footer>
+
+</body>
+
+</html>
