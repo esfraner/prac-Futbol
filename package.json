@@ -1,0 +1,24 @@
+{
+  "name": "prac4-Agenda-TypeScrit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esfraner/prac4-Agenda-TypeScrit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/esfraner/prac4-Agenda-TypeScrit/issues"
+  },
+  "homepage": "https://github.com/esfraner/prac4-Agenda-TypeScrit#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
+}
