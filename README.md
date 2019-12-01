@@ -1,1 +1,1 @@
-# prac4-Agenda-TypeScrit
+# prac4-Futbol-Typescript
