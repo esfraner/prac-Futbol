@@ -1,11 +1,5 @@
 import { Player } from "../models/player.model";
 import { GUI } from "../contants/GUI";
-import {
-  ELEMENTS,
-  CLASSLISTS,
-  DIVROW,
-  ATTRIBUTES
-} from "../contants/constants";
 
 export class viewPlayers {
   constructor() {}
@@ -13,20 +7,7 @@ export class viewPlayers {
     players.forEach(player => this.createCard(player));
   }
 
-  createPlayerAttributes(player: Player) {
-    const spanNombre = document.createElement("span");
-    const spanAlias = document.createElement("span");
-    const spanId = document.createElement("span");
-    const spanBirthday = document.createElement("span");
-    const textNombre = document.createTextNode(player.name);
-    const textAlias = document.createTextNode(player.alias);
-    const textId = document.createTextNode(player.id);
-    const textBirthday = document.createTextNode(player.birthday);
-  }
-
   createCard(player: Player) {
-    // <label for="">hola:</label><span>hola</span>
-    // this.createPlayerAttributes(player);
     const labelNombre = document.createElement("label");
     const labelAlias = document.createElement("label");
     const labelId = document.createElement("label");
@@ -35,6 +16,10 @@ export class viewPlayers {
     const textLabelAlias = document.createTextNode("Alias: ");
     const textLabelId = document.createTextNode("Id: ");
     const textLabelBirthday = document.createTextNode("Birthday: ");
+    labelNombre.appendChild(textLabelNombre);
+    labelAlias.appendChild(textLabelAlias);
+    labelId.appendChild(textLabelId);
+    labelBirthday.appendChild(textLabelBirthday);
 
     const spanNombre = document.createElement("span");
     const spanAlias = document.createElement("span");
@@ -44,10 +29,10 @@ export class viewPlayers {
     spanAlias.className = "col s12 m12";
     spanId.className = "col s12 m12";
     spanBirthday.className = "col s12 m12";
-    spanNombre.appendChild(textLabelNombre);
-    spanAlias.appendChild(textLabelAlias);
-    spanId.appendChild(textLabelId);
-    spanBirthday.appendChild(textLabelBirthday);
+    spanNombre.appendChild(labelNombre);
+    spanAlias.appendChild(labelAlias);
+    spanId.appendChild(labelId);
+    spanBirthday.appendChild(labelBirthday);
     const textNombre = document.createTextNode(player.name);
     const textAlias = document.createTextNode(player.alias);
     const textId = document.createTextNode(player.id);
