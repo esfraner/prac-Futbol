@@ -15,6 +15,7 @@ services:
       MYSQL_DATABASE: qwerty
       MYSQL_USER: qwerty
       MYSQL_PASSWORD: qwerty
-
+    ports:
+      - "10080:80"
 volumes:
   mysql:
