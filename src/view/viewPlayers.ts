@@ -44,9 +44,13 @@ export class viewPlayers {
 
     const divRow = document.createElement("div");
     divRow.classList.add("row", "card");
-    divRow.addEventListener("onclick", function() {
-      console.log("click");
-    }); //TODO
+    divRow.addEventListener(
+      "click",
+      () => {
+        this.showPlayerInForm(player);
+      },
+      false
+    ); //TODO
     //creado un div con card
     const divPlayer = document.createElement("div");
     divPlayer.className = "col s6 m7";
@@ -67,7 +71,14 @@ export class viewPlayers {
     // divImage.appendChild(img);
     // divImage.className = DIVIMAGE.CLASSNAME;
     // divRow.appendChild(divImage);
-    const listCards: HTMLElement | null = GUI.LIST_CARDS;
+    const listCards: HTMLElement = GUI.LIST_CARDS;
     listCards.appendChild(divRow); //error?
   }
+
+  showPlayerInForm = (player: Player) => {
+    GUI.INPUT_NAME.value = player.name;
+    GUI.INPUT_ALIAS.value = player.alias;
+    GUI.INPUT_BIRTHDAY.value = player.birthday;
+    console.log(player);
+  };
 }
