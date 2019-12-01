@@ -17,9 +17,12 @@ export class servicePlayers {
     );
   }
 
-  async getPlayers() {
-    const fetchedPlayers = await this.fetchData();
-    fetchedPlayers.forEach((_player: Player) =>
+  getPlayers() {
+    // const fetchedPlayers = await this.fetchData();
+    // fetchedPlayers.forEach((_player: Player) =>
+    //   this.players.push(new Player(_player))
+    // );
+    PLAYERS.forEach((_player: Player) =>
       this.players.push(new Player(_player))
     );
     return this.players;
