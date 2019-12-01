@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-  <link rel="stylesheet" href="../src/assets/style.css">
+  <link rel="stylesheet" href="../css/style.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -18,7 +18,13 @@
   </div>
   <div class="container">
     <article class='col s12'>
-      <section id=playersContainer>
+      <section id='playersContainer' clas="container">
+        <div class="row">
+          <input id ="inputSearch" type="text" class="col s2" placeholder="Buscar">
+          <button id="buttonSearch" class="waves-effect waves-light btn col s1 m2">Buscar</button>
+          <button id="buttonShowAll"  class="waves-effect waves-light btn col s1 m2">Todos</button>
+          <button id="buttonAdd"  class="waves-effect waves-light btn col s1 m2">Añadir</button>
+        </div>
       </section>
     </article>
     <section class='row main'>
