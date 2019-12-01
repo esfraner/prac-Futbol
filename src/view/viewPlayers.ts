@@ -3,8 +3,11 @@ import { GUI } from "../contants/GUI";
 
 export class viewPlayers {
   constructor() {}
-  chargeCards(players: Player[]) {
-    players.forEach(player => this.createCard(player));
+
+  bindLoadPlayers(handler: any) {
+    const players = handler();
+    console.log(players);
+    players.forEach((player: Player) => this.createCard(player));
   }
 
   createCard(player: Player) {
