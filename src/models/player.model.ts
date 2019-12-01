@@ -4,7 +4,7 @@ export class Player {
   public id: string;
   public alias: string;
   public name: string;
-  public birthday: Moment;
+  public birthday: string; //moment
 
   constructor({ id, alias, name, birthday }: iPlayer) {
     this.id = id;
