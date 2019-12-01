@@ -6,24 +6,25 @@
   <link rel="stylesheet" href="../css/style.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
   <div class='container'>
-  <section class='row header'>
-    <nav id="topbar">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Jugadores</a>
-      </div>
-    </nav>
-  </section>
+    <section class='row header'>
+      <nav id="topbar">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Jugadores</a>
+        </div>
+      </nav>
+    </section>
   </div>
   <div class="container">
     <article class='col s12'>
       <section id='playersContainer' clas="container">
         <div class="row">
-          <input id ="inputSearch" type="text" class="col s2" placeholder="Buscar">
+          <input id="inputSearch" type="text" class="col s2" placeholder="Buscar">
           <button id="buttonSearch" class="waves-effect waves-light btn col s1 m2">Buscar</button>
-          <button id="buttonShowAll"  class="waves-effect waves-light btn col s1 m2">Todos</button>
-          <button id="buttonAdd"  class="waves-effect waves-light btn col s1 m2">Añadir</button>
+          <button id="buttonShowAll" class="waves-effect waves-light btn col s1 m2">Todos</button>
+          <button id="buttonAdd" class="waves-effect waves-light btn col s1 m2">Añadir</button>
         </div>
       </section>
     </article>
@@ -31,57 +32,57 @@
       <aside class='col s8 playersPage' id="card-list">
       </aside>
       <aside class='col s4 playersPage'>
-      <div>
-        <h4>Formulario</h4>
-        <section id="form">
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s7">
-                  <input id="inputName" type="text" class="validate">
-                  <label class="active" for="input">NAME</label>
+        <div>
+          <h4>Formulario</h4>
+          <section id="form">
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s7">
+                    <input id="inputName" type="text" class="validate">
+                    <label class="active" for="input">NAME</label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s7">
-                  <input id="inputAlias" type="text" class="validate">
-                  <label class="active" for="inputAlias">Alias</label>
+                <div class="row">
+                  <div class="input-field col s7">
+                    <input id="inputAlias" type="text" class="validate">
+                    <label class="active" for="inputAlias">Alias</label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s7">
-                  <input id="inputRol" type="email" class="validate">
-                  <label class="active" for="inputRol">Rol</label>
+                <div class="row">
+                  <div class="input-field col s7">
+                    <input id="inputRol" type="email" class="validate">
+                    <label class="active" for="inputRol">Rol</label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s7">
-                  <input id="inputBirthday" class="validate">
-                  <label class="active" for="inputBirthday">BirthDay</label>
+                <div class="row">
+                  <div class="input-field col s7">
+                    <input id="inputBirthday" class="validate">
+                    <label class="active" for="inputBirthday">BirthDay</label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="input-field col s7">
-                  <select id="inputClub"></select>
-                  <label class="active" for="inputClub">Club</label>
+                <div class="row">
+                  <div class="input-field col s7">
+                    <select id="inputClub"></select>
+                    <label class="active" for="inputClub">Club</label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="row">
-                <div class="holder">
-                  <img id="image" src="./assets/images/placeholder.png" id="imgPlayer" width="115px" height="115px" />
+                <div class="row">
+                  <div class="holder">
+                    <img id="image" src="./assets/images/placeholder.png" id="imgPlayer" width="115px" height="115px" />
+                  </div>
+                  <button type="button" id="buttonAdd" class="waves-effect waves-light btn col s7">Añadir</button>
+                  <button type="button" id="buttonUpdate" class="waves-effect waves-light btn col s7">Modificar</button>
+                  <button type="button" id="buttonRemove" class="waves-effect waves-light btn col s7">Borrar</button>
                 </div>
-                <button type="button" id="buttonAdd" class="waves-effect waves-light btn col s7">Añadir</button>
-                <button type="button" id="buttonUpdate" class="waves-effect waves-light btn col s7">Modificar</button>
-                <button type="button" id="buttonRemove" class="waves-effect waves-light btn col s7">Borrar</button>
-              </div>
-            </form>
-          </div>
-        </section>
+              </form>
+            </div>
+          </section>
       </aside>
     </section>
   </div>
@@ -92,4 +93,5 @@
   </footer>
 </body>
 <script src="bundle.js"></script>
+
 </html>

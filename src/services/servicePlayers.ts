@@ -1,6 +1,6 @@
-import { Player } from "../models/player.model";
-import { PLAYERS } from "../contants/players.mock";
-import { FetchService } from "./fetch.service";
+import { Player } from '../models/player.model';
+import { PLAYERS } from '../contants/players.mock';
+import { FetchService } from './fetch.service';
 
 export class servicePlayers {
   players: Player[];
@@ -12,8 +12,8 @@ export class servicePlayers {
 
   async fetchData() {
     return await this.fetchService.makeFetchRequest(
-      "http://127.17.0.1/getData.php",
-      "GET"
+      'http://127.17.0.1/getData.php',
+      'GET'
     );
   }
 

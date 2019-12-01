@@ -1,5 +1,5 @@
-import { Moment } from "moment";
-import { iPlayer } from "./player.interface";
+import { Moment } from 'moment';
+import { iPlayer } from './player.interface';
 export class Player {
   public id: string;
   public alias: string;
