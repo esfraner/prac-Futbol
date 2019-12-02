@@ -10,12 +10,25 @@ export class controllerPlayers {
     this.view = view;
     this.servicePlayer = servicePlayer;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
-    this.view._addPlayersEvent(this.servicePlayer.addPlayer);
-    this.view._updatePlayersEvent(this.servicePlayer.updatePlayerAttributes);
-    this.view._removePlayersEvent(this.servicePlayer.removePlayer);
+    this.view._addPlayersEvent(
+      this.servicePlayer.addPlayer,
+      this.handlerGetPLayers
+    );
+    this.view._updatePlayersEvent(
+      this.servicePlayer.updatePlayerAttributes,
+      this.handlerGetPLayers
+    );
+    this.view._removePlayersEvent(
+      this.servicePlayer.removePlayer,
+      this.handlerGetPLayers
+    );
   }
 
   handlerLoadPLayers = (): Player[] => {
+    return this.servicePlayer.getInitPlayers();
+  };
+
+  handlerGetPLayers = (): Player[] => {
     return this.servicePlayer.getPlayers();
   };
 }

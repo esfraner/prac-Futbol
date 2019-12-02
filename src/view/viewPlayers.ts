@@ -7,7 +7,6 @@ export class viewPlayers {
 
   bindLoadPlayers(handler: any) {
     const players = handler();
-    console.log(players);
     players.forEach((player: Player) => this.createCard(player));
   }
 
@@ -104,26 +103,48 @@ export class viewPlayers {
     return player;
   };
 
-  _updatePlayersEvent = (handler: CallableFunction) => {
+  _updatePlayersEvent = (
+    handler: CallableFunction,
+    handler2: CallableFunction
+  ) => {
     GUI.BUTTON_UPDATE.addEventListener('click', () => {
       handler(this.getplayerFromInput());
+      this.refreshView();
+      this.bindLoadPlayers(handler2);
     });
   };
 
-  _addPlayersEvent = (handler: CallableFunction) => {
+  _addPlayersEvent = (
+    handler: CallableFunction,
+    handler2: CallableFunction
+  ) => {
     GUI.BUTTON_ADD.addEventListener('click', () => {
       handler(this.getplayerFromInput());
+      console.log(handler2());
+      this.refreshView();
+      this.bindLoadPlayers(handler2);
     });
   };
 
-  _removePlayersEvent = (handler: CallableFunction) => {
+  _removePlayersEvent = (
+    handler: CallableFunction,
+    handler2: CallableFunction
+  ) => {
     GUI.BUTTON_REMOVE.addEventListener('click', () => {
       const resultNumber = handler(this.getplayerFromInput());
       this.isPlayerCorrect(resultNumber);
+      this.refreshView();
+      this.bindLoadPlayers(handler2);
     });
   };
 
   isPlayerCorrect(number: number) {
     number >= 0 ? alert('Borrado') : alert('No existe el player');
+  }
+
+  refreshView() {
+    GUI.LIST_CARDS.querySelectorAll('*').forEach((n: HTMLElement) =>
+      n.remove()
+    );
   }
 }
