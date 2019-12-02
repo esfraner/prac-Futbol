@@ -1,8 +1,8 @@
-import { viewPlayers } from "../view/viewPlayers";
-import { servicePlayers } from "../services/servicePlayers";
-import { Player } from "../models/player.model";
-import { PLAYERS } from "../contants/players.mock";
-import { iPlayer } from "../models/player.interface";
+import { viewPlayers } from '../view/viewPlayers';
+import { servicePlayers } from '../services/servicePlayers';
+import { Player } from '../models/player.model';
+import { PLAYERS } from '../contants/players.mock';
+import { iPlayer } from '../models/player.interface';
 export class controllerPlayers {
   view: viewPlayers;
   servicePlayer: servicePlayers;
