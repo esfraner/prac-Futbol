@@ -18,7 +18,7 @@ export class servicePlayers {
     );
   }
 
-  getPlayers(): Player[] {
+  getInitPlayers(): Player[] {
     // const fetchedPlayers = await this.fetchData();
     // fetchedPlayers.forEach((_player: Player) =>
     //   this.players.push(new Player(_player))
@@ -26,6 +26,15 @@ export class servicePlayers {
     PLAYERS.forEach((_player: Player) =>
       this.players.push(new Player(_player))
     );
+    return this.players;
+  }
+
+  getPlayers(): Player[] {
+    // const fetchedPlayers = await this.fetchData();
+    // fetchedPlayers.forEach((_player: Player) =>
+    //   this.players.push(new Player(_player))
+    // );
+
     return this.players;
   }
 
