@@ -10,6 +10,10 @@ export class controllerPlayers {
     this.view = view;
     this.servicePlayer = servicePlayer;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     this.view._addPlayersEvent(
       this.servicePlayer.addPlayer,
       this.handlerGetPLayers
@@ -22,6 +26,10 @@ export class controllerPlayers {
       this.servicePlayer.removePlayer,
       this.handlerGetPLayers
     );
+<<<<<<< HEAD
+=======
+    this.view._cleanInputsButton();
+>>>>>>> master
   }
 
   handlerLoadPLayers = (): Player[] => {

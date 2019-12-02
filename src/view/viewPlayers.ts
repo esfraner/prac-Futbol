@@ -111,6 +111,7 @@ export class viewPlayers {
       handler(this.getplayerFromInput());
       this.refreshView();
       this.bindLoadPlayers(handler2);
+      this.cleanInputs();
     });
   };
 
@@ -123,6 +124,7 @@ export class viewPlayers {
       console.log(handler2());
       this.refreshView();
       this.bindLoadPlayers(handler2);
+      this.cleanInputs();
     });
   };
 
@@ -135,6 +137,7 @@ export class viewPlayers {
       this.isPlayerCorrect(resultNumber);
       this.refreshView();
       this.bindLoadPlayers(handler2);
+      this.cleanInputs();
     });
   };
 
@@ -147,4 +150,17 @@ export class viewPlayers {
       n.remove()
     );
   }
+
+  cleanInputs() {
+    GUI.INPUT_ID.value = '';
+    GUI.INPUT_NAME.value = '';
+    GUI.INPUT_ALIAS.value = '';
+    GUI.INPUT_BIRTHDAY.value = '';
+  }
+
+  _cleanInputsButton = () => {
+    GUI.BUTTON_CLEAN.addEventListener('click', () => {
+      this.cleanInputs();
+    });
+  };
 }
