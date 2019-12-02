@@ -12,6 +12,7 @@ export class controllerPlayers {
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
     this.view._addPlayersEvent(this.servicePlayer.addPlayer);
     this.view._updatePlayersEvent(this.servicePlayer.updatePlayerAttributes);
+    this.view._removePlayersEvent(this.servicePlayer.removePlayer);
   }
 
   handlerLoadPLayers = (): Player[] => {

@@ -50,4 +50,15 @@ export class servicePlayers {
   private getLastIdPlayer() {
     return '' + (parseInt(this.players[this.players.length - 1].id) + 1);
   }
+
+  removePlayer = (player: Player) => {
+    const playerToRemove = this.players.findIndex(
+      _player => _player.id == player.id
+    );
+    if (playerToRemove >= 0) {
+      this.players.splice(playerToRemove, 1);
+      console.log(this.players);
+    }
+    return playerToRemove;
+  };
 }

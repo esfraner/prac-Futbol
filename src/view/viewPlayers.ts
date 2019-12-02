@@ -115,4 +115,15 @@ export class viewPlayers {
       handler(this.getplayerFromInput());
     });
   };
+
+  _removePlayersEvent = (handler: CallableFunction) => {
+    GUI.BUTTON_REMOVE.addEventListener('click', () => {
+      const resultNumber = handler(this.getplayerFromInput());
+      this.isPlayerCorrect(resultNumber);
+    });
+  };
+
+  isPlayerCorrect(number: number) {
+    number >= 0 ? alert('Borrado') : alert('No existe el player');
+  }
 }
