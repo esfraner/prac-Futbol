@@ -163,4 +163,11 @@ export class viewPlayers {
       this.cleanInputs();
     });
   };
+
+  _showAllPlayers = (handler: CallableFunction) => {
+    GUI.BUTTON_SHOW_ALL.addEventListener("click", () => {
+      this.refreshView();
+      this.bindLoadPlayers(handler);
+    });
+  };
 }

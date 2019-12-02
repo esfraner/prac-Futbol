@@ -24,6 +24,7 @@ export class controllerPlayers {
       this.handlerGetPLayers
     );
     this.view._cleanInputsButton();
+    this.view._showAllPlayers(this.handlerGetPLayers);
   }
 
   handlerLoadPLayers = (): Player[] => {

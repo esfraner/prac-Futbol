@@ -8,5 +8,6 @@ export const GUI: any = {
   BUTTON_UPDATE: document.getElementById("buttonUpdate"),
   BUTTON_ADD: document.getElementById("buttonAddDown"),
   BUTTON_REMOVE: document.getElementById("buttonRemove"),
-  BUTTON_CLEAN: document.getElementById("buttonClean")
+  BUTTON_CLEAN: document.getElementById("buttonClean"),
+  BUTTON_SHOW_ALL: document.getElementById("buttonShowAll")
 };
