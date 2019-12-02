@@ -1,8 +1,8 @@
-import { viewPlayers } from "../view/viewPlayers";
-import { servicePlayers } from "../services/servicePlayers";
-import { Player } from "../models/player.model";
-import { PLAYERS } from "../contants/players.mock";
-import { iPlayer } from "../models/player.interface";
+import { viewPlayers } from '../view/viewPlayers';
+import { servicePlayers } from '../services/servicePlayers';
+import { Player } from '../models/player.model';
+import { PLAYERS } from '../contants/players.mock';
+import { iPlayer } from '../models/player.interface';
 export class controllerPlayers {
   view: viewPlayers;
   servicePlayer: servicePlayers;
@@ -10,9 +10,12 @@ export class controllerPlayers {
     this.view = view;
     this.servicePlayer = servicePlayer;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
+    this.view._addPlayersEvent(this.servicePlayer.addPlayer);
+    this.view._updatePlayersEvent(this.servicePlayer.updatePlayerAttributes);
+    this.view._removePlayersEvent(this.servicePlayer.removePlayer);
   }
 
-  handlerLoadPLayers = () => {
+  handlerLoadPLayers = (): Player[] => {
     return this.servicePlayer.getPlayers();
   };
 }
