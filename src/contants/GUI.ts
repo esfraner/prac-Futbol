@@ -5,9 +5,11 @@ export const GUI: any = {
   INPUT_ALIAS: document.getElementById("inputAlias"),
   INPUT_ROL: document.getElementById("inputRol"),
   INPUT_BIRTHDAY: document.getElementById("inputBirthday"),
+  INPUT_SEARCH: document.getElementById("inputSearch"),
   BUTTON_UPDATE: document.getElementById("buttonUpdate"),
   BUTTON_ADD: document.getElementById("buttonAddDown"),
   BUTTON_REMOVE: document.getElementById("buttonRemove"),
   BUTTON_CLEAN: document.getElementById("buttonClean"),
-  BUTTON_SHOW_ALL: document.getElementById("buttonShowAll")
+  BUTTON_SHOW_ALL: document.getElementById("buttonShowAll"),
+  BUTTON_SEARCH: document.getElementById("buttonSearch")
 };
