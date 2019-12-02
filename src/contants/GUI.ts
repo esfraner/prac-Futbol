@@ -5,5 +5,6 @@ export const GUI: any = {
   INPUT_ALIAS: document.getElementById('inputAlias'),
   INPUT_ROL: document.getElementById('inputRol'),
   INPUT_BIRTHDAY: document.getElementById('inputBirthday'),
-  BUTTON_UPDATE: document.getElementById('buttonUpdate')
+  BUTTON_UPDATE: document.getElementById('buttonUpdate'),
+  BUTTON_ADD: document.getElementById('buttonAddDown')
 };

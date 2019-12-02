@@ -109,4 +109,10 @@ export class viewPlayers {
       handler(this.getplayerFromInput());
     });
   };
+
+  _addPlayersEvent = (handler: CallableFunction) => {
+    GUI.BUTTON_ADD.addEventListener('click', () => {
+      handler(this.getplayerFromInput());
+    });
+  };
 }

@@ -32,11 +32,17 @@ export class servicePlayers {
   updatePlayerAttributes = (player: iPlayer) => {
     this.players
       .filter(_player => _player.id == player.id)
-      .map((_player: iPlayer) => {
+      .map((_player: Player) => {
         _player.name = player.name;
         _player.alias = player.alias;
         _player.birthday = player.birthday;
       });
+    console.log(this.players);
+  };
+
+  addPlayer = (player: Player) => {
+    const newPlayer: Player = { ...player, id: 's' };
+    this.players.push(new Player(newPlayer));
     console.log(this.players);
   };
 }
