@@ -41,8 +41,13 @@ export class servicePlayers {
   };
 
   addPlayer = (player: Player) => {
-    const newPlayer: Player = { ...player, id: 's' };
+    const lastId = this.getLastIdPlayer();
+    const newPlayer: Player = { ...player, id: lastId };
     this.players.push(new Player(newPlayer));
     console.log(this.players);
   };
+
+  private getLastIdPlayer() {
+    return '' + (parseInt(this.players[this.players.length - 1].id) + 1);
+  }
 }
