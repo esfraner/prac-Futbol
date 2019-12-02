@@ -1,6 +1,7 @@
 import { Player } from '../models/player.model';
 import { PLAYERS } from '../contants/players.mock';
 import { FetchService } from './fetch.service';
+import { iPlayer } from '../models/player.interface';
 
 export class servicePlayers {
   players: Player[];
@@ -17,7 +18,7 @@ export class servicePlayers {
     );
   }
 
-  getPlayers() {
+  getPlayers(): Player[] {
     // const fetchedPlayers = await this.fetchData();
     // fetchedPlayers.forEach((_player: Player) =>
     //   this.players.push(new Player(_player))
@@ -27,4 +28,15 @@ export class servicePlayers {
     );
     return this.players;
   }
+
+  updatePlayerAttributes = (player: iPlayer) => {
+    this.players
+      .filter(_player => _player.id == player.id)
+      .map((_player: iPlayer) => {
+        _player.name = player.name;
+        _player.alias = player.alias;
+        _player.birthday = player.birthday;
+      });
+    console.log(this.players);
+  };
 }

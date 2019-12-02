@@ -10,9 +10,10 @@ export class controllerPlayers {
     this.view = view;
     this.servicePlayer = servicePlayer;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
+    this.view._updatePlayersEvent(this.servicePlayer.updatePlayerAttributes);
   }
 
-  handlerLoadPLayers = () => {
+  handlerLoadPLayers = (): Player[] => {
     return this.servicePlayer.getPlayers();
   };
 }

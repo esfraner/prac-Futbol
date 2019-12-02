@@ -1,5 +1,6 @@
 import { Player } from '../models/player.model';
 import { GUI } from '../contants/GUI';
+import { iPlayer } from '../models/player.interface';
 
 export class viewPlayers {
   constructor() {}
@@ -79,9 +80,33 @@ export class viewPlayers {
   }
 
   showPlayerInForm = (player: Player) => {
+    GUI.INPUT_ID.value = player.id;
     GUI.INPUT_NAME.value = player.name;
     GUI.INPUT_ALIAS.value = player.alias;
     GUI.INPUT_BIRTHDAY.value = player.birthday;
     console.log(player);
+  };
+
+  //this function should replace the current player attributes with the ones from the inputs
+  getInputsToUpdatePlayer = (player: Player) => {
+    player.name = GUI.INPUT_NAME.value;
+    player.alias = GUI.INPUT_ALIAS.value;
+    player.birthday = GUI.INPUT_BIRTHDAY.value;
+  };
+
+  getplayerFromInput = (): iPlayer => {
+    const player: iPlayer = {
+      id: GUI.INPUT_ID.value,
+      name: GUI.INPUT_NAME.value,
+      alias: GUI.INPUT_ALIAS.value,
+      birthday: GUI.INPUT_BIRTHDAY.value
+    };
+    return player;
+  };
+
+  _updatePlayersEvent = (handler: CallableFunction) => {
+    GUI.BUTTON_UPDATE.addEventListener('click', () => {
+      handler(this.getplayerFromInput());
+    });
   };
 }
