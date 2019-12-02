@@ -171,10 +171,15 @@ export class viewPlayers {
     });
   };
 
-  //this function should remove all players(refreshView), find the player searched in the array and show that player
-  __searchPlayer = () => {
+  bindLoadSearchedPlayers(handler: any) {
+    const searchedPlayers = handler();
+    searchedPlayers.forEach((player: Player) => this.createCard(player));
+  }
+
+  _searchPlayer = (handler: CallableFunction) => {
     GUI.BUTTON_SEARCH.addEventListener("click", () => {
       this.refreshView();
+      this.bindLoadSearchedPlayers(handler);
     });
   };
 }

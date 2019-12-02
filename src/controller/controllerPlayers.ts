@@ -3,6 +3,7 @@ import { servicePlayers } from "../services/servicePlayers";
 import { Player } from "../models/player.model";
 import { PLAYERS } from "../contants/players.mock";
 import { iPlayer } from "../models/player.interface";
+import { GUI } from "../contants/GUI";
 export class controllerPlayers {
   view: viewPlayers;
   servicePlayer: servicePlayers;
@@ -25,6 +26,7 @@ export class controllerPlayers {
     );
     this.view._cleanInputsButton();
     this.view._showAllPlayers(this.handlerGetPLayers);
+    this.view._searchPlayer(this.handlerSearchedPlayers);
   }
 
   handlerLoadPLayers = (): Player[] => {
@@ -33,5 +35,9 @@ export class controllerPlayers {
 
   handlerGetPLayers = (): Player[] => {
     return this.servicePlayer.getPlayers();
+  };
+
+  handlerSearchedPlayers = (): Player[] => {
+    return this.servicePlayer.searchPlayerFromArray(GUI.INPUT_SEARCH.value); //TODO: this param should come from view
   };
 }
