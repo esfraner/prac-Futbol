@@ -1,9 +1,23 @@
-import { Player } from "../models/player.model";
-import { GUI } from "../contants/GUI";
-import { iPlayer } from "../models/player.interface";
+
+import { Player } from '../models/player.model';
+import { GUI } from '../contants/GUI';
+import { iPlayer } from '../models/player.interface';
+import { ICON_CLASS } from '../contants/constants';
 
 export class viewPlayers {
-  constructor() {}
+  checks: any;
+  constructor() {
+    this.checks = {
+      nameCheck: false,
+      surnameCheck: false,
+      addressCheck: false,
+      postCodeCheck: false,
+      landLineCheck: false,
+      mobilePhoneCheck: false,
+      emailCheck: false,
+      birthDateCheck: false
+    };
+  }
 
   bindLoadPlayers(handler: any) {
     const players = handler();
@@ -163,6 +177,93 @@ export class viewPlayers {
       this.cleanInputs();
     });
   };
+
+  handlerOnKeyUp(handler: CallableFunction, target: any) {
+    const isValidInput = handler(target.value);
+    const elementName = target.getAttribute('data-icon');
+    this.stateCheckHandler(isValidInput, GUI[elementName]);
+  }
+
+  handlerOnChange(target: any) {
+    if (target.value.length == 0 || target.value === '') {
+      const elementName = target.getAttribute('data-icon');
+      GUI[elementName].setAttribute('class', '');
+    }
+  }
+
+  stateCheckHandler(isValidInput: boolean, elementIcon: HTMLElement) {
+    isValidInput
+      ? this.showTickIcon(elementIcon)
+      : this.showCrossIcon(elementIcon);
+  }
+
+  showTickIcon(element: HTMLElement) {
+    element.className = ICON_CLASS.TICK;
+  }
+
+  showCrossIcon(element: HTMLElement) {
+    element.className = ICON_CLASS.CROSS;
+  }
+
+  _eventKeyUpName(handler: CallableFunction) {
+    GUI.INPUT_NAME.addEventListener('keyup', ({ target }: any) => {
+      this.handlerOnKeyUp(handler, target);
+    });
+  }
+
+  _eventChangeName() {
+    GUI.INPUT_NAME.addEventListener('change', ({ target }: any) => {
+      this.handlerOnChange(target);
+    });
+  }
+
+  _eventKeyUpAlias(handler: CallableFunction) {
+    GUI.INPUT_ALIAS.addEventListener('keyup', ({ target }: any) => {
+      this.handlerOnKeyUp(handler, target);
+    });
+  }
+
+  _eventChangeAlias() {
+    GUI.INPUT_ALIAS.addEventListener('change', ({ target }: any) => {
+      this.handlerOnChange(target);
+    });
+  }
+
+  _eventKeyUpRol(handler: CallableFunction) {
+    GUI.INPUT_ROL.addEventListener('keyup', ({ target }: any) => {
+      this.handlerOnKeyUp(handler, target);
+    });
+  }
+
+  _eventChangeBirthday() {
+    GUI.INPUT_BIRTHDAY.addEventListener('change', ({ target }: any) => {
+      this.handlerOnChange(target);
+    });
+  }
+
+  _eventKeyUpBirthday(handler: CallableFunction) {
+    GUI.INPUT_BIRTHDAY.addEventListener('keyup', ({ target }: any) => {
+      this.handlerOnKeyUp(handler, target);
+    });
+  }
+
+  _eventChangeRol() {
+    GUI.INPUT_ROL.addEventListener('change', ({ target }: any) => {
+      this.handlerOnChange(target);
+    });
+  }
+
+  _validateAddButton() {
+    GUI.BUTTON_ADD.disabled = Object.values(this.checks).includes(false);
+  }
+
+  _validateUpdateButton() {
+    GUI.BUTTON_UPDATE.disabled = Object.values(this.checks).includes(false);
+  }
+
+  _validateRemoveButton() {
+    GUI.BUTTON_REMOVE.disabled = Object.values(this.checks).includes(false);
+  }
 
   _showAllPlayers = (handler: CallableFunction) => {
     GUI.BUTTON_SHOW_ALL.addEventListener("click", () => {
