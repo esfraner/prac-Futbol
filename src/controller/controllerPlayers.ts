@@ -1,11 +1,10 @@
-
-import { viewPlayers } from "../view/viewPlayers";
-import { servicePlayers } from "../services/servicePlayers";
+import { viewPlayers } from '../view/viewPlayers';
+import { servicePlayers } from '../services/servicePlayers';
 import { formService } from '../services/form.service';
-import { Player } from "../models/player.model";
-import { PLAYERS } from "../contants/players.mock";
-import { iPlayer } from "../models/player.interface";
-import { GUI } from "../contants/GUI";
+import { Player } from '../models/player.model';
+import { PLAYERS } from '../contants/players.mock';
+import { iPlayer } from '../models/player.interface';
+import { GUI } from '../contants/GUI';
 
 export class controllerPlayers {
   view: viewPlayers;
@@ -55,14 +54,6 @@ export class controllerPlayers {
     this.view._showAllPlayers(this.handlerGetPLayers);
     this.view._searchPlayer(this.handlerSearchedPlayers);
   }
-
-  handlerLoadPLayers = (): Player[] => {
-    return this.servicePlayer.getInitPlayers();
-  };
-
-  handlerGetPLayers = (): Player[] => {
-    return this.servicePlayer.getPlayers();
-  };
 
   handlerSearchedPlayers = (): Player[] => {
     return this.servicePlayer.searchPlayerFromArray(GUI.INPUT_SEARCH.value); //TODO: this param should come from view
