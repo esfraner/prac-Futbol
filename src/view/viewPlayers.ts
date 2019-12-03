@@ -1,8 +1,8 @@
-
 import { Player } from '../models/player.model';
 import { GUI } from '../contants/GUI';
 import { iPlayer } from '../models/player.interface';
 import { ICON_CLASS } from '../contants/constants';
+import moment = require('moment');
 
 export class viewPlayers {
   checks: any;
@@ -21,31 +21,31 @@ export class viewPlayers {
 
   bindLoadPlayers(handler: any) {
     const players = handler();
-    players.forEach((player: Player) => this.createCard(player));
+    players.forEach((player: iPlayer) => this.createCard(player));
   }
 
-  createCard(player: Player) {
-    const labelNombre = document.createElement("label");
-    const labelAlias = document.createElement("label");
-    const labelId = document.createElement("label");
-    const labelBirthday = document.createElement("label");
-    const textLabelNombre = document.createTextNode("Nombre: ");
-    const textLabelAlias = document.createTextNode("Alias: ");
-    const textLabelId = document.createTextNode("Id: ");
-    const textLabelBirthday = document.createTextNode("Birthday: ");
+  createCard(player: iPlayer) {
+    const labelNombre = document.createElement('label');
+    const labelAlias = document.createElement('label');
+    const labelId = document.createElement('label');
+    const labelBirthday = document.createElement('label');
+    const textLabelNombre = document.createTextNode('Nombre: ');
+    const textLabelAlias = document.createTextNode('Alias: ');
+    const textLabelId = document.createTextNode('Id: ');
+    const textLabelBirthday = document.createTextNode('Birthday: ');
     labelNombre.appendChild(textLabelNombre);
     labelAlias.appendChild(textLabelAlias);
     labelId.appendChild(textLabelId);
     labelBirthday.appendChild(textLabelBirthday);
 
-    const spanNombre = document.createElement("span");
-    const spanAlias = document.createElement("span");
-    const spanId = document.createElement("span");
-    const spanBirthday = document.createElement("span");
-    spanNombre.className = "col s12 m12";
-    spanAlias.className = "col s12 m12";
-    spanId.className = "col s12 m12";
-    spanBirthday.className = "col s12 m12";
+    const spanNombre = document.createElement('span');
+    const spanAlias = document.createElement('span');
+    const spanId = document.createElement('span');
+    const spanBirthday = document.createElement('span');
+    spanNombre.className = 'col s12 m12';
+    spanAlias.className = 'col s12 m12';
+    spanId.className = 'col s12 m12';
+    spanBirthday.className = 'col s12 m12';
     spanNombre.appendChild(labelNombre);
     spanAlias.appendChild(labelAlias);
     spanId.appendChild(labelId);
@@ -59,25 +59,25 @@ export class viewPlayers {
     spanId.appendChild(textId);
     spanBirthday.appendChild(textBirthday);
 
-    const divRow = document.createElement("div");
-    divRow.classList.add("row", "card");
+    const divRow = document.createElement('div');
+    divRow.classList.add('row', 'card');
     divRow.addEventListener(
-      "click",
+      'click',
       () => {
         this.showPlayerInForm(player);
       },
       false
     ); //TODO
     //creado un div con card
-    const divPlayer = document.createElement("div");
-    divPlayer.className = "col s6 m7";
+    const divPlayer = document.createElement('div');
+    divPlayer.className = 'col s6 m7';
     divPlayer.appendChild(spanId);
     divPlayer.appendChild(spanNombre);
     divPlayer.appendChild(spanAlias);
     divPlayer.appendChild(spanBirthday);
     divRow.appendChild(divPlayer);
-    const divCard = document.createElement("div");
-    divCard.classList.add("player-card");
+    const divCard = document.createElement('div');
+    divCard.classList.add('player-card');
     divPlayer.appendChild(divCard);
 
     // const divImage = _view.createElement(ELEMENTS.DIV);
@@ -92,7 +92,7 @@ export class viewPlayers {
     listCards.appendChild(divRow); //error?
   }
 
-  showPlayerInForm = (player: Player) => {
+  showPlayerInForm = (player: iPlayer) => {
     GUI.INPUT_ID.value = player.id;
     GUI.INPUT_NAME.value = player.name;
     GUI.INPUT_ALIAS.value = player.alias;
@@ -112,7 +112,7 @@ export class viewPlayers {
       id: GUI.INPUT_ID.value,
       name: GUI.INPUT_NAME.value,
       alias: GUI.INPUT_ALIAS.value,
-      birthday: GUI.INPUT_BIRTHDAY.value
+      birthday: moment(GUI.INPUT_BIRTHDAY.value).format('DD/MM/YYYY')
     };
     return player;
   };
@@ -121,7 +121,7 @@ export class viewPlayers {
     handler: CallableFunction,
     handler2: CallableFunction
   ) => {
-    GUI.BUTTON_UPDATE.addEventListener("click", () => {
+    GUI.BUTTON_UPDATE.addEventListener('click', () => {
       handler(this.getplayerFromInput());
       this.refreshView();
       this.bindLoadPlayers(handler2);
@@ -133,7 +133,7 @@ export class viewPlayers {
     handler: CallableFunction,
     handler2: CallableFunction
   ) => {
-    GUI.BUTTON_ADD.addEventListener("click", () => {
+    GUI.BUTTON_ADD.addEventListener('click', () => {
       handler(this.getplayerFromInput());
       console.log(handler2());
       this.refreshView();
@@ -146,7 +146,7 @@ export class viewPlayers {
     handler: CallableFunction,
     handler2: CallableFunction
   ) => {
-    GUI.BUTTON_REMOVE.addEventListener("click", () => {
+    GUI.BUTTON_REMOVE.addEventListener('click', () => {
       const resultNumber = handler(this.getplayerFromInput());
       this.isPlayerCorrect(resultNumber);
       this.refreshView();
@@ -156,24 +156,24 @@ export class viewPlayers {
   };
 
   isPlayerCorrect(number: number) {
-    number >= 0 ? alert("Borrado") : alert("No existe el player");
+    number >= 0 ? alert('Borrado') : alert('No existe el player');
   }
 
   refreshView() {
-    GUI.LIST_CARDS.querySelectorAll("*").forEach((n: HTMLElement) =>
+    GUI.LIST_CARDS.querySelectorAll('*').forEach((n: HTMLElement) =>
       n.remove()
     );
   }
 
   cleanInputs() {
-    GUI.INPUT_ID.value = "";
-    GUI.INPUT_NAME.value = "";
-    GUI.INPUT_ALIAS.value = "";
-    GUI.INPUT_BIRTHDAY.value = "";
+    GUI.INPUT_ID.value = '';
+    GUI.INPUT_NAME.value = '';
+    GUI.INPUT_ALIAS.value = '';
+    GUI.INPUT_BIRTHDAY.value = '';
   }
 
   _cleanInputsButton = () => {
-    GUI.BUTTON_CLEAN.addEventListener("click", () => {
+    GUI.BUTTON_CLEAN.addEventListener('click', () => {
       this.cleanInputs();
     });
   };
@@ -266,19 +266,19 @@ export class viewPlayers {
   }
 
   _showAllPlayers = (handler: CallableFunction) => {
-    GUI.BUTTON_SHOW_ALL.addEventListener("click", () => {
+    GUI.BUTTON_SHOW_ALL.addEventListener('click', () => {
       this.refreshView();
       this.bindLoadPlayers(handler);
     });
   };
 
-  bindLoadSearchedPlayers(handler: any) {
+  bindLoadSearchedPlayers(handler: CallableFunction) {
     const searchedPlayers = handler();
-    searchedPlayers.forEach((player: Player) => this.createCard(player));
+    searchedPlayers.forEach((player: iPlayer) => this.createCard(player));
   }
 
   _searchPlayer = (handler: CallableFunction) => {
-    GUI.BUTTON_SEARCH.addEventListener("click", () => {
+    GUI.BUTTON_SEARCH.addEventListener('click', () => {
       this.refreshView();
       this.bindLoadSearchedPlayers(handler);
     });
