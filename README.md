@@ -1,6 +1,6 @@
 # prac4-Futbol-Typescript
 
-Pasos para arrancar el docker(se supone que docker ya esta instalado):
+Pasos para arrancar el docker(se supone que docker ya esta instalado):  
 cd docker-compose-lamp  
 docker-compose up -d  
 
