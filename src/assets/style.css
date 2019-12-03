@@ -73,3 +73,13 @@ select {
   display: inline-block;
   height: 5%;
 }
+.oi {
+  margin-left: 13px;
+  font-size: 140%;
+}
+.oi-check {
+  color: #45a163;
+}
+.oi-x {
+  color: #eb4034;
+}

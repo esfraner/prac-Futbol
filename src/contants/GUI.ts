@@ -7,5 +7,12 @@ export const GUI: any = {
   INPUT_BIRTHDAY: document.getElementById('inputBirthday'),
   BUTTON_UPDATE: document.getElementById('buttonUpdate'),
   BUTTON_ADD: document.getElementById('buttonAddDown'),
-  BUTTON_REMOVE: document.getElementById('buttonRemove')
+  BUTTON_REMOVE: document.getElementById('buttonRemove'),
+  BUTTON_CLEAN: document.getElementById('buttonClean'),
+  BUTTON_SHOW_ALL: document.getElementById('buttonShowAll'),
+  BUTTON_SEARCH: document.getElementById('buttonSearch'),
+  NAME_CHECK: document.getElementById('nameCheck'),
+  ALIAS_CHECK: document.getElementById('aliasCheck'),
+  ROL_CHECK: document.getElementById('rolCheck'),
+  BIRTHDAY_CHECK: document.getElementById('birthdayCheck')
 };
