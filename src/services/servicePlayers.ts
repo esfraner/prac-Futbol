@@ -1,7 +1,7 @@
-import { Player } from '../models/player.model';
-import { PLAYERS } from '../contants/players.mock';
-import { FetchService } from './fetch.service';
-import { iPlayer } from '../models/player.interface';
+import { Player } from "../models/player.model";
+import { PLAYERS } from "../contants/players.mock";
+import { FetchService } from "./fetch.service";
+import { iPlayer } from "../models/player.interface";
 
 export class servicePlayers {
   players: Player[];
@@ -13,8 +13,8 @@ export class servicePlayers {
 
   async fetchData() {
     return await this.fetchService.makeFetchRequest(
-      'http://127.17.0.1/getData.php',
-      'GET'
+      "http://127.17.0.1/getData.php",
+      "GET"
     );
   }
 
@@ -57,7 +57,7 @@ export class servicePlayers {
   };
 
   private getLastIdPlayer() {
-    return '' + (parseInt(this.players[this.players.length - 1].id) + 1);
+    return "" + (parseInt(this.players[this.players.length - 1].id) + 1);
   }
 
   removePlayer = (player: Player) => {
@@ -70,4 +70,11 @@ export class servicePlayers {
     }
     return playerToRemove;
   };
+
+  searchPlayerFromArray(searchedWord: string): Player[] {
+    return this.players.filter(
+      ({ name, alias }) =>
+        name.includes(searchedWord) || alias.includes(searchedWord)
+    );
+  }
 }
