@@ -10,3 +10,5 @@ docker-compose exec webserver bash
 
 Para crear y rellenar la bdd:
 php loadData.php
+
+origen del docker: https://github.com/sprintcube/docker-compose-lamp/tree/master
