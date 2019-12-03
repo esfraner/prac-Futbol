@@ -1,7 +1,7 @@
-import { Player } from "../models/player.model";
-import { PLAYERS } from "../contants/players.mock";
-import { FetchService } from "./fetch.service";
-import { iPlayer } from "../models/player.interface";
+import { Player } from '../models/player.model';
+import { PLAYERS } from '../contants/players.mock';
+import { FetchService } from './fetch.service';
+import { iPlayer } from '../models/player.interface';
 
 export class servicePlayers {
   players: Player[];
@@ -13,28 +13,24 @@ export class servicePlayers {
 
   async fetchData() {
     return await this.fetchService.makeFetchRequest(
-      "http://127.17.0.1/getData.php",
-      "GET"
+      'http://127.17.0.1/getData.php',
+      'GET'
     );
   }
 
-  getInitPlayers(): Player[] {
-    // const fetchedPlayers = await this.fetchData();
-    // fetchedPlayers.forEach((_player: Player) =>
-    //   this.players.push(new Player(_player))
-    // );
-    PLAYERS.forEach((_player: Player) =>
+  async getInitPlayers() {
+    const fetchedPlayers = await this.fetchData();
+    fetchedPlayers.forEach((_player: Player) =>
       this.players.push(new Player(_player))
     );
+    console.log(this.players);
+    /*  PLAYERS.forEach((_player: Player) =>
+      this.players.push(new Player(_player))
+    ); */
     return this.players;
   }
 
-  getPlayers(): Player[] {
-    // const fetchedPlayers = await this.fetchData();
-    // fetchedPlayers.forEach((_player: Player) =>
-    //   this.players.push(new Player(_player))
-    // );
-
+  getPlayers() {
     return this.players;
   }
 
@@ -57,7 +53,7 @@ export class servicePlayers {
   };
 
   private getLastIdPlayer() {
-    return "" + (parseInt(this.players[this.players.length - 1].id) + 1);
+    return '' + (parseInt(this.players[this.players.length - 1].id) + 1);
   }
 
   removePlayer = (player: Player) => {

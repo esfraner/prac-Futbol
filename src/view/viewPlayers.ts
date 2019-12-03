@@ -19,8 +19,9 @@ export class viewPlayers {
     };
   }
 
-  bindLoadPlayers(handler: any) {
-    const players = handler();
+  async bindLoadPlayers(handler: any) {
+    const players = await handler();
+    console.log(players);
     players.forEach((player: iPlayer) => this.createCard(player));
   }
 

@@ -22,13 +22,14 @@ export class controllerPlayers {
     this.initViewEvents();
   }
 
-  handlerLoadPLayers = (): Player[] => {
+  handlerLoadPLayers = () => {
     return this.servicePlayer.getInitPlayers();
   };
 
-  handlerGetPLayers = (): Player[] => {
+  handlerGetPLayers = () => {
     return this.servicePlayer.getPlayers();
   };
+
   initViewEvents() {
     this.view._addPlayersEvent(
       this.servicePlayer.addPlayer,
