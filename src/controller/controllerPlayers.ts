@@ -17,6 +17,17 @@ export class controllerPlayers {
     this.servicePlayer = servicePlayer;
     this.formService = formService;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
+    this.initViewEvents();
+  }
+
+  handlerLoadPLayers = (): Player[] => {
+    return this.servicePlayer.getInitPlayers();
+  };
+
+  handlerGetPLayers = (): Player[] => {
+    return this.servicePlayer.getPlayers();
+  };
+  initViewEvents() {
     this.view._addPlayersEvent(
       this.servicePlayer.addPlayer,
       this.handlerGetPLayers
@@ -30,28 +41,14 @@ export class controllerPlayers {
       this.handlerGetPLayers
     );
     this.view._cleanInputsButton();
-    /*  this.view.getElementsFromForm(); */
-    this.view.bindName(this.handleName);
+
+    this.view._eventKeyUpName(this.formService.validateName);
+    this.view._eventChangeName();
+    this.view._eventKeyUpAlias(this.formService.validateAlias);
+    this.view._eventChangeAlias();
+    this.view._eventKeyUpRol(this.formService.validateRol);
+    this.view._eventChangeRol();
+    this.view._eventKeyUpBirthday(this.formService.validateBirthday);
+    this.view._eventChangeBirthday();
   }
-
-  handleName = (name: string) => {
-    console.log(name);
-    return this.formService.validateName(name);
-  };
-
-  /*   handleSurname = surName => {
-    return this.formService.validateSurname(surName);
-  };
-
-  handleAddress = address => {
-    return this.formService.validateAddress(address);
-  }; */
-
-  handlerLoadPLayers = (): Player[] => {
-    return this.servicePlayer.getInitPlayers();
-  };
-
-  handlerGetPLayers = (): Player[] => {
-    return this.servicePlayer.getPlayers();
-  };
 }
