@@ -2,8 +2,6 @@ import { viewPlayers } from '../view/viewPlayers';
 import { servicePlayers } from '../services/servicePlayers';
 import { formService } from '../services/form.service';
 import { Player } from '../models/player.model';
-import { PLAYERS } from '../contants/players.mock';
-import { iPlayer } from '../models/player.interface';
 import { GUI } from '../contants/GUI';
 
 export class controllerPlayers {
