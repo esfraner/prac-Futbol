@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="stylesheet" href="../css/style.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/51ec7e1916.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,10 +25,8 @@
           <input id="inputSearch" type="text" class="col s2" placeholder="Buscar">
           <button id="buttonSearch" class="waves-effect waves-light btn col s1 m2">Buscar</button>
           <button id="buttonShowAll" class="waves-effect waves-light btn col s1 m2">Todos</button>
-          <<<<<<< HEAD <button id="buttonAdd" class="waves-effect waves-light btn col s1 m2">Añadir</button>
-            =======
-            <button id="buttonClean" class="waves-effect waves-light btn col s1 m2">Limpiar campos</button>
-            >>>>>>> master
+          <button id="buttonClean" class="waves-effect waves-light btn col s1 m2">Limpiar campos</button>
+
         </div>
       </section>
     </article>
@@ -45,9 +44,12 @@
                     <input id="inputId" type="text" class="validate" disabled>
                     <label class="active" for="input">ID</label>
                   </div>
+                </div>
+                <div class="row">
                   <div class="input-field col s7">
                     <input id="inputName" type="text" class="validate">
-                    <label class="active" for="input">NAME</label>
+                    <label class="active" for="input">NAME</label><i id="nameCheck"></i>
+                    <!--  <div class="alert" id="nameCheck"></div> -->
                   </div>
                 </div>
 

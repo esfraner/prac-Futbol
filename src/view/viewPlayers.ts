@@ -3,7 +3,54 @@ import { GUI } from '../contants/GUI';
 import { iPlayer } from '../models/player.interface';
 
 export class viewPlayers {
-  constructor() {}
+  checks: any;
+  updateButton: any;
+  name: any;
+  surNameInput: any;
+  addressInput: HTMLElement | null;
+  postCodeInput: HTMLElement | null;
+  landlineInput: HTMLElement | null;
+  mobilePhoneInput: HTMLElement | null;
+  emailInput: HTMLElement | null;
+  birthDateInput: HTMLElement | null;
+  countryInput: HTMLElement | null;
+  body: HTMLElement | null;
+  sendInput: HTMLElement | null;
+  addButton: any;
+  removeButton: any;
+  alias: any;
+  birthdate: any;
+  club: any;
+  constructor() {
+    this.getElementsFromForm();
+    this.checks = {
+      nameCheck: false,
+      surnameCheck: false,
+      addressCheck: false,
+      postCodeCheck: false,
+      landLineCheck: false,
+      mobilePhoneCheck: false,
+      emailCheck: false,
+      birthDateCheck: false
+    };
+  }
+
+  getElementsFromForm() {
+    this.name = GUI.INPUT_NAME;
+    this.surNameInput = GUI.INPUT_SURNAME;
+    this.addressInput = document.getElementById('address');
+    this.postCodeInput = document.getElementById('postCode');
+    this.landlineInput = document.getElementById('landline');
+    this.mobilePhoneInput = document.getElementById('mobilePhone');
+    this.emailInput = document.getElementById('email');
+    this.birthDateInput = document.getElementById('birthDate');
+    this.countryInput = document.getElementById('country');
+    this.body = document.getElementById('general');
+    this.sendInput = document.getElementById('sendBtn');
+    this.addButton = GUI.BUTTON_ADD;
+    this.updateButton = GUI.BUTTON_UPDATE;
+    this.removeButton = GUI.BUTTON_REMOVE;
+  }
 
   bindLoadPlayers(handler: any) {
     const players = handler();
@@ -163,4 +210,96 @@ export class viewPlayers {
       this.cleanInputs();
     });
   };
+
+  getName() {
+    return this.name.value;
+  }
+
+  getAlias() {
+    return this.alias.value;
+  }
+
+  getBirthdate() {
+    return this.birthdate.value;
+  }
+
+  getClub() {
+    return this.club.value;
+  }
+
+  bindInput({ check, input, value, handler }: any) {
+    const checkPosition = document.getElementById(check);
+    input.addEventListener('change', () => {
+      let isValid = false;
+      if (this._hasLength(3, value())) {
+        isValid = handler(value());
+        this._showAlert(checkPosition, isValid);
+        this._validateAddButton();
+        this._validateUpdateButton();
+        this._validateRemoveButton();
+      }
+      if (!this._hasLength(3, value())) {
+        console.log('ddfdf');
+      }
+      this.checks[check] = isValid;
+    });
+  }
+
+  bindName(handler: CallableFunction) {
+    this.bindInput({
+      check: 'nameCheck',
+      input: this.name,
+      value: this.getName.bind(this),
+      handler
+    });
+  }
+
+  bindAlias(handler: CallableFunction) {
+    this.bindInput({
+      check: 'aliasCheck',
+      input: this.alias,
+      value: this.getAlias.bind(this),
+      handler
+    });
+  }
+
+  bindBirthdate(handler: CallableFunction) {
+    this.bindInput({
+      check: 'birthDateCheck',
+      input: this.birthdate,
+      value: this.getBirthdate.bind(this),
+      handler
+    });
+  }
+
+  bindClub(handler: CallableFunction) {
+    this.bindInput({
+      check: 'clubCheck',
+      input: this.club,
+      value: this.getClub.bind(this),
+      handler
+    });
+  }
+
+  _showAlert(element: HTMLElement, isSuccess: boolean) {
+    isSuccess
+      ? (element.className = 'fas fa-check')
+      : (element.className = 'fas fa-times');
+  }
+
+  _validateAddButton() {
+    this.addButton.disabled = Object.values(this.checks).includes(false);
+  }
+
+  _validateUpdateButton() {
+    this.updateButton.disabled = Object.values(this.checks).includes(false);
+  }
+
+  _validateRemoveButton() {
+    this.removeButton.disabled = Object.values(this.checks).includes(false);
+  }
+
+  _hasLength(length: number, element: string) {
+    return element.length > length;
+  }
 }
