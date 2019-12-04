@@ -30,35 +30,52 @@ export class viewPlayers {
     const labelAlias = document.createElement('label');
     const labelId = document.createElement('label');
     const labelBirthday = document.createElement('label');
+    const labelClub = document.createElement('label');
+    const labelRol = document.createElement('label');
     const textLabelNombre = document.createTextNode('Nombre: ');
     const textLabelAlias = document.createTextNode('Alias: ');
     const textLabelId = document.createTextNode('Id: ');
     const textLabelBirthday = document.createTextNode('Birthday: ');
+    const textLabelClub = document.createTextNode('Club: ');
+    const textLabelRol = document.createTextNode('Rol: ');
     labelNombre.appendChild(textLabelNombre);
     labelAlias.appendChild(textLabelAlias);
     labelId.appendChild(textLabelId);
     labelBirthday.appendChild(textLabelBirthday);
+    labelClub.appendChild(textLabelClub);
+    labelRol.appendChild(textLabelRol);
 
     const spanNombre = document.createElement('span');
     const spanAlias = document.createElement('span');
     const spanId = document.createElement('span');
     const spanBirthday = document.createElement('span');
+    const spanClub = document.createElement('span');
+    const spanRol = document.createElement('span');
     spanNombre.className = 'col s12 m12';
     spanAlias.className = 'col s12 m12';
     spanId.className = 'col s12 m12';
     spanBirthday.className = 'col s12 m12';
+    spanClub.className = 'col s12 m12';
+    spanRol.className = 'col s12 m12';
     spanNombre.appendChild(labelNombre);
     spanAlias.appendChild(labelAlias);
     spanId.appendChild(labelId);
     spanBirthday.appendChild(labelBirthday);
+    spanClub.appendChild(labelClub);
+    spanRol.appendChild(labelRol);
+
     const textNombre = document.createTextNode(player.name);
     const textAlias = document.createTextNode(player.alias);
     const textId = document.createTextNode(player.id);
     const textBirthday = document.createTextNode(player.birthday);
+    const textClub = document.createTextNode(player.club);
+    const textRol = document.createTextNode(player.rol);
     spanNombre.appendChild(textNombre);
     spanAlias.appendChild(textAlias);
     spanId.appendChild(textId);
     spanBirthday.appendChild(textBirthday);
+    spanClub.appendChild(textClub);
+    spanRol.appendChild(textRol);
 
     const divRow = document.createElement('div');
     divRow.classList.add('row', 'card');
@@ -76,6 +93,8 @@ export class viewPlayers {
     divPlayer.appendChild(spanNombre);
     divPlayer.appendChild(spanAlias);
     divPlayer.appendChild(spanBirthday);
+    divPlayer.appendChild(spanClub);
+    divPlayer.appendChild(spanRol);
     divRow.appendChild(divPlayer);
     const divCard = document.createElement('div');
     divCard.classList.add('player-card');
@@ -101,7 +120,6 @@ export class viewPlayers {
     console.log(player);
   };
 
-  //this function should replace the current player attributes with the ones from the inputs
   getInputsToUpdatePlayer = (player: Player) => {
     player.name = GUI.INPUT_NAME.value;
     player.alias = GUI.INPUT_ALIAS.value;
@@ -113,7 +131,9 @@ export class viewPlayers {
       id: GUI.INPUT_ID.value,
       name: GUI.INPUT_NAME.value,
       alias: GUI.INPUT_ALIAS.value,
-      birthday: moment(GUI.INPUT_BIRTHDAY.value).format('DD/MM/YYYY')
+      birthday: moment(GUI.INPUT_BIRTHDAY.value).format('DD/MM/YYYY'),
+      club: GUI.INPUT_CLUB.value,
+      rol: GUI.INPUT_CLUB.value
     };
     return player;
   };

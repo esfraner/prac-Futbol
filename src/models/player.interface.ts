@@ -4,4 +4,6 @@ export interface iPlayer {
   alias: string;
   name: string;
   birthday: string; //moment
+  club: string;
+  rol: string;
 }
