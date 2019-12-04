@@ -3,3 +3,4 @@ export const ICON_CLASS = {
   CROSS: 'fas fa-times'
 };
 export const ROLS = ['SELECCIONA', 'PORTERO', 'DEFENSA', 'MEDIO', 'DELANTERO'];
+export const DEFAULT_IMAGE = 'http://localhost/assets/images/raul.jpg';

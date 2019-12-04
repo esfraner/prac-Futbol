@@ -49,10 +49,10 @@ export class controllerPlayers {
     this.view._eventChangeName();
     this.view._eventKeyUpAlias(this.formService.validateAlias);
     this.view._eventChangeAlias();
-    this.view._eventKeyUpRol(this.formService.validateRol);
-    this.view._eventChangeRol();
     this.view._eventKeyUpBirthday(this.formService.validateBirthday);
     this.view._eventChangeBirthday();
+    this.view._eventKeyUpClub(this.formService.validateClub);
+    this.view._eventChangeClub();
     this.view._showAllPlayers(this.handlerGetPLayers);
     this.view._searchPlayer(this.handlerSearchedPlayers);
   }

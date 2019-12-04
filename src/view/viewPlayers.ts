@@ -1,7 +1,7 @@
 import { Player } from '../models/player.model';
 import { GUI } from '../contants/GUI';
 import { iPlayer } from '../models/player.interface';
-import { ICON_CLASS, ROLS } from '../contants/constants';
+import { ICON_CLASS, ROLS, DEFAULT_IMAGE } from '../contants/constants';
 import moment = require('moment');
 
 export class viewPlayers {
@@ -9,13 +9,7 @@ export class viewPlayers {
   constructor() {
     this.checks = {
       nameCheck: false,
-      surnameCheck: false,
-      addressCheck: false,
-      postCodeCheck: false,
-      landLineCheck: false,
-      mobilePhoneCheck: false,
-      emailCheck: false,
-      birthDateCheck: false
+      clubCheck: false
     };
   }
 
@@ -100,8 +94,8 @@ export class viewPlayers {
         this.showPlayerInForm(player);
       },
       false
-    ); //TODO
-    //creado un div con card
+    );
+
     const divPlayer = document.createElement('div');
     divPlayer.className = 'col s12 m12';
     divPlayer.appendChild(spanId);
@@ -119,7 +113,8 @@ export class viewPlayers {
     const img = document.createElement('img');
     divImage.className = 'col s12 m7';
     img.classList.add('imageCard');
-    img.src = player.image;
+    player.image ? (img.src = player.image) : (img.src = DEFAULT_IMAGE);
+
     divImage.appendChild(img);
 
     divCard.appendChild(divImage);
@@ -136,6 +131,7 @@ export class viewPlayers {
     GUI.INPUT_BIRTHDAY.value = player.birthday;
     GUI.INPUT_CLUB.value = player.club;
     GUI.INPUT_ROL.value = player.rol;
+    GUI.IMAGE_FORM.src = player.image;
     console.log(player);
   };
 
@@ -143,19 +139,21 @@ export class viewPlayers {
     player.name = GUI.INPUT_NAME.value;
     player.alias = GUI.INPUT_ALIAS.value;
     player.birthday = GUI.INPUT_BIRTHDAY.value;
+    player.club = GUI.INPUT_CLUB.value;
+    player.rol = GUI.INPUT_ROL.value;
   };
 
-  getplayerFromInput = () /* : iPlayer  */ => {
-    /* const player: iPlayer = {
+  getplayerFromInput = (): iPlayer => {
+    const player: iPlayer = {
       id: GUI.INPUT_ID.value,
       name: GUI.INPUT_NAME.value,
       alias: GUI.INPUT_ALIAS.value,
       birthday: moment(GUI.INPUT_BIRTHDAY.value).format('DD/MM/YYYY'),
       club: GUI.INPUT_CLUB.value,
-      rol: GUI.INPUT_ROL.value
-       image: GUI.INPUT_IMAGE
+      rol: GUI.INPUT_ROL.value,
+      image: GUI.IMAGE_FORM.src
     };
-    return player; */
+    return player;
   };
 
   _updatePlayersEvent = (
@@ -211,6 +209,9 @@ export class viewPlayers {
     GUI.INPUT_NAME.value = '';
     GUI.INPUT_ALIAS.value = '';
     GUI.INPUT_BIRTHDAY.value = '';
+    GUI.INPUT_CLUB.value = '';
+    GUI.INPUT_ROL.value = ROLS[0];
+    GUI.IMAGE_FORM.src = ' ';
   }
 
   _cleanInputsButton = () => {
@@ -270,12 +271,6 @@ export class viewPlayers {
     });
   }
 
-  _eventKeyUpRol(handler: CallableFunction) {
-    GUI.INPUT_ROL.addEventListener('keyup', ({ target }: any) => {
-      this.handlerOnKeyUp(handler, target);
-    });
-  }
-
   _eventChangeBirthday() {
     GUI.INPUT_BIRTHDAY.addEventListener('change', ({ target }: any) => {
       this.handlerOnChange(target);
@@ -288,9 +283,15 @@ export class viewPlayers {
     });
   }
 
-  _eventChangeRol() {
-    GUI.INPUT_ROL.addEventListener('change', ({ target }: any) => {
+  _eventChangeClub() {
+    GUI.INPUT_CLUB.addEventListener('change', ({ target }: any) => {
       this.handlerOnChange(target);
+    });
+  }
+
+  _eventKeyUpClub(handler: CallableFunction) {
+    GUI.INPUT_CLUB.addEventListener('keyup', ({ target }: any) => {
+      this.handlerOnKeyUp(handler, target);
     });
   }
 

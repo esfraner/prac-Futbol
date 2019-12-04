@@ -7,6 +7,7 @@ export const GUI: any = {
   INPUT_ROL: document.getElementById('inputRol'),
   INPUT_BIRTHDAY: document.getElementById('inputBirthday'),
   INPUT_SEARCH: document.getElementById('inputSearch'),
+  IMAGE_FORM: document.getElementById('imageForm'),
   BUTTON_UPDATE: document.getElementById('buttonUpdate'),
   BUTTON_ADD: document.getElementById('buttonAddDown'),
   BUTTON_REMOVE: document.getElementById('buttonRemove'),
@@ -15,6 +16,6 @@ export const GUI: any = {
   BUTTON_SEARCH: document.getElementById('buttonSearch'),
   NAME_CHECK: document.getElementById('nameCheck'),
   ALIAS_CHECK: document.getElementById('aliasCheck'),
-  ROL_CHECK: document.getElementById('rolCheck'),
+  CLUB_CHECK: document.getElementById('clubCheck'),
   BIRTHDAY_CHECK: document.getElementById('birthdayCheck')
 };

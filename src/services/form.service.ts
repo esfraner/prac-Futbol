@@ -14,6 +14,10 @@ export class formService {
     return REGEXP.ROL.test(rol);
   }
 
+  validateClub(club: string) {
+    return REGEXP.CLUB.test(club);
+  }
+
   validateBirthday(date: string): boolean {
     return REGEXP.BIRTH_DATE.test(date);
   }
