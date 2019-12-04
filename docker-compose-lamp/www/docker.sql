@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `PLAYERS` (
   `BIRTHDAY` date NOT NULL,
   `CLUB` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ROL` enum('PORTERO','DEFENSA','MEDIO','DELANTERO') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'MEDIO',
-  `IMAGE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `IMAGE` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
