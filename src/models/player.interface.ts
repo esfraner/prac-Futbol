@@ -6,4 +6,5 @@ export interface iPlayer {
   birthday: string; //moment
   club: string;
   rol: string;
+  image: string;
 }

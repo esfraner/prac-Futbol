@@ -3,6 +3,7 @@ export const GUI: any = {
   INPUT_ID: document.getElementById('inputId'),
   INPUT_NAME: document.getElementById('inputName'),
   INPUT_ALIAS: document.getElementById('inputAlias'),
+  INPUT_CLUB: document.getElementById('inputClub'),
   INPUT_ROL: document.getElementById('inputRol'),
   INPUT_BIRTHDAY: document.getElementById('inputBirthday'),
   INPUT_SEARCH: document.getElementById('inputSearch'),

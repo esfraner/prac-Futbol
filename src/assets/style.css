@@ -73,6 +73,9 @@ select {
   display: inline-block;
   height: 5%;
 }
+.imageCard {
+  width: 50%;
+}
 .oi {
   margin-left: 13px;
   font-size: 140%;

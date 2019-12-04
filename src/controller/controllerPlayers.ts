@@ -19,6 +19,7 @@ export class controllerPlayers {
     this.servicePlayer = servicePlayer;
     this.formService = formService;
     this.view.bindLoadPlayers(this.handlerLoadPLayers);
+    this.view.chargeInputSelect();
     this.initViewEvents();
   }
 

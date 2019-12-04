@@ -7,12 +7,14 @@ export class Player {
   public birthday: string;
   public club: string;
   public rol: string;
-  constructor({ id, alias, name, birthday, club, rol }: iPlayer) {
+  public image: string;
+  constructor({ id, alias, name, birthday, club, rol, image }: iPlayer) {
     this.id = id;
     this.alias = alias;
     this.name = name;
     this.club = club;
     this.rol = rol;
     this.birthday = moment(birthday).format('DD/MM/YYYY');
+    this.image = image;
   }
 }

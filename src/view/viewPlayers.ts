@@ -1,7 +1,7 @@
 import { Player } from '../models/player.model';
 import { GUI } from '../contants/GUI';
 import { iPlayer } from '../models/player.interface';
-import { ICON_CLASS } from '../contants/constants';
+import { ICON_CLASS, ROLS } from '../contants/constants';
 import moment = require('moment');
 
 export class viewPlayers {
@@ -21,8 +21,17 @@ export class viewPlayers {
 
   async bindLoadPlayers(handler: any) {
     const players = await handler();
-    console.log(players);
     players.forEach((player: iPlayer) => this.createCard(player));
+  }
+  chargeInputSelect() {
+    console.log(ROLS);
+    ROLS.forEach(rol => {
+      const option = document.createElement('option');
+      option.setAttribute('value', rol);
+      const optionText = document.createTextNode(rol);
+      option.appendChild(optionText);
+      GUI.INPUT_ROL.appendChild(option);
+    });
   }
 
   createCard(player: iPlayer) {
@@ -77,8 +86,14 @@ export class viewPlayers {
     spanClub.appendChild(textClub);
     spanRol.appendChild(textRol);
 
+    const divCard = document.createElement('div');
+    divCard.classList.add('card', 'divCard');
+    const divRowContainer = document.createElement('div');
+    divRowContainer.classList.add('col', 's6'); //container
+    divRowContainer.appendChild(divCard);
+
     const divRow = document.createElement('div');
-    divRow.classList.add('row', 'card');
+    divRow.classList.add('row');
     divRow.addEventListener(
       'click',
       () => {
@@ -88,7 +103,7 @@ export class viewPlayers {
     ); //TODO
     //creado un div con card
     const divPlayer = document.createElement('div');
-    divPlayer.className = 'col s6 m7';
+    divPlayer.className = 'col s12 m12';
     divPlayer.appendChild(spanId);
     divPlayer.appendChild(spanNombre);
     divPlayer.appendChild(spanAlias);
@@ -96,20 +111,22 @@ export class viewPlayers {
     divPlayer.appendChild(spanClub);
     divPlayer.appendChild(spanRol);
     divRow.appendChild(divPlayer);
-    const divCard = document.createElement('div');
-    divCard.classList.add('player-card');
-    divPlayer.appendChild(divCard);
+    const divPlayerCard = document.createElement('div');
+    divPlayerCard.classList.add('player-card');
+    divRow.appendChild(divPlayerCard);
 
-    // const divImage = _view.createElement(ELEMENTS.DIV);
-    // const img = _view.createElement(ELEMENTS.IMG);
-    // img.src = IMG.HEADER + Player.IMAGE;
-    // img.setAttribute(ATTRIBUTES.WIDTH, IMG.WIDTH);
-    // img.classList.add(IMG.CLASSNAME);
-    // divImage.appendChild(img);
-    // divImage.className = DIVIMAGE.CLASSNAME;
-    // divRow.appendChild(divImage);
+    const divImage = document.createElement('div');
+    const img = document.createElement('img');
+    divImage.className = 'col s12 m7';
+    img.classList.add('imageCard');
+    img.src = player.image;
+    divImage.appendChild(img);
+
+    divCard.appendChild(divImage);
+
     const listCards: HTMLElement = GUI.LIST_CARDS;
-    listCards.appendChild(divRow); //error?
+    divCard.appendChild(divRow);
+    listCards.appendChild(divRowContainer);
   }
 
   showPlayerInForm = (player: iPlayer) => {
@@ -117,6 +134,8 @@ export class viewPlayers {
     GUI.INPUT_NAME.value = player.name;
     GUI.INPUT_ALIAS.value = player.alias;
     GUI.INPUT_BIRTHDAY.value = player.birthday;
+    GUI.INPUT_CLUB.value = player.club;
+    GUI.INPUT_ROL.value = player.rol;
     console.log(player);
   };
 
@@ -126,16 +145,17 @@ export class viewPlayers {
     player.birthday = GUI.INPUT_BIRTHDAY.value;
   };
 
-  getplayerFromInput = (): iPlayer => {
-    const player: iPlayer = {
+  getplayerFromInput = () /* : iPlayer  */ => {
+    /* const player: iPlayer = {
       id: GUI.INPUT_ID.value,
       name: GUI.INPUT_NAME.value,
       alias: GUI.INPUT_ALIAS.value,
       birthday: moment(GUI.INPUT_BIRTHDAY.value).format('DD/MM/YYYY'),
       club: GUI.INPUT_CLUB.value,
-      rol: GUI.INPUT_CLUB.value
+      rol: GUI.INPUT_ROL.value
+       image: GUI.INPUT_IMAGE
     };
-    return player;
+    return player; */
   };
 
   _updatePlayersEvent = (

@@ -20,7 +20,7 @@ $sql = "SELECT * FROM PLAYERS";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-    $players[] = ["id"=>$row["ID"], "alias"=>$row["ALIAS"], "name"=>$row["NAME"], "birthday"=>$row["BIRTHDAY"], "club"=>$row["CLUB"], "rol"=>$row["ROL"]];
+    $players[] = ["id"=>$row["ID"], "alias"=>$row["ALIAS"], "name"=>$row["NAME"], "birthday"=>$row["BIRTHDAY"], "club"=>$row["CLUB"], "rol"=>$row["ROL"],"image"=>$row["IMAGE"]];
     }
 } else {
     echo "0 results";
