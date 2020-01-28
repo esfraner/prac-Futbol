@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/esfraner/prac4-Agenda-TypeScrit#readme",
   "dependencies": {
+    "dexie": "^2.0.4",
+    "is-online": "^8.2.1",
     "moment": "^2.24.0"
   },
   "devDependencies": {
