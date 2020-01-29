@@ -27,43 +27,15 @@ export class DexieService {
 				);
 			});
 	}
+
 	deletePlayer(id: string) {
 		return this.futbolBD.players
 			.where('id')
 			.equals(id)
 			.delete();
 	}
+
 	getPlayers() {
 		return this.futbolBD.players.toArray();
 	}
-	async makePersist() {
-		return (
-			(await navigator.storage) &&
-			navigator.storage.persist &&
-			navigator.storage.persist()
-		);
-	}
 }
-/* 
-dexieDBService.prototype.getAutos = function() {
-	return this.autosDB.autos.toArray();
-};
-
-dexieDBService.prototype.addAutosDB = function(autos) {
-	return autos.map(auto => this.addAutoDB(auto));
-};
-
-dexieDBService.prototype.addAutoDB = function(auto) {
-	return this.autosDB.autos.put(auto);
-};
-
-dexieDBService.prototype.deleteAutoDB = function(uuid) {
-	return this.autosDB.autos
-		.where('uuid')
-		.equals(uuid)
-		.delete();
-};
-
-dexieDBService.prototype.modifyAutoDB = function(newAuto) {
-	this.autosDB.autos.update(newAuto.uuid, newAuto);
-}; */

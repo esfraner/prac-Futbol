@@ -12,7 +12,6 @@ export class servicePlayers {
 		this.players = [];
 		this.fetchService = fetchService;
 		this.dexie = dexieService;
-		this.dexie.makePersist();
 		/* this.dexie.addPlayer(
 			new Player({
 				id: '11',
